@@ -100,7 +100,7 @@ case "$1" in
       fi
 
       # Check if a config file exists
-      if ! test -e $CONF_DIR/*.conf; then
+      if ! find $CONF_DIR -type f -name "*.conf" | read; then
          log_failure_msg "There aren't any configuration files in $CONF_DIR"
          exit 1
       fi
